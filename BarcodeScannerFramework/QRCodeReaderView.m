@@ -18,17 +18,30 @@
 
 - (void)drawRect:(CGRect)rect
 {
-  CGRect innerRect = CGRectInset(rect, 50, 50);
+    int originalWidth = rect.size.width;
+    int originalHeight = rect.size.height;
+    
+    int innerRectWidth;
+    int innerRectHeight;
+    
+    if (originalHeight > originalWidth) {
+        
+    }
+    100 * originalHeight / originalWidth
+    // else
+    
+  CGRect innerRect = CGRectInset(rect, 50, 100);
 
-  CGFloat minSize = MIN(innerRect.size.width, innerRect.size.height);
-  if (innerRect.size.width != minSize) {
-    innerRect.origin.x   += (innerRect.size.width - minSize) / 2;
-    innerRect.size.width = minSize;
-  }
-  else if (innerRect.size.height != minSize) {
-    innerRect.origin.y    += (innerRect.size.height - minSize) / 2;
-    innerRect.size.height = minSize;
-  }
+//  CGFloat minSize = MIN(innerRect.size.width, innerRect.size.height);
+//
+//  if (innerRect.size.width != minSize) {
+//    innerRect.origin.x   += (innerRect.size.width - minSize) / 2;
+//    innerRect.size.width = minSize;
+//  }
+//  else if (innerRect.size.height != minSize) {
+//    innerRect.origin.y    += (innerRect.size.height - minSize) / 2;
+//    innerRect.size.height = minSize;
+//  }
 
   CGRect offsetRect = CGRectOffset(innerRect, 0, 15);
 
