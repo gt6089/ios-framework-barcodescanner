@@ -21,32 +21,18 @@
     int originalWidth = rect.size.width;
     int originalHeight = rect.size.height;
     
-    int innerRectWidth;
-    int innerRectHeight;
+    int innerRectWidth = 50;
+    int innerRectHeight = originalHeight * 0.4; // portrait mode
     
-    if (originalHeight > originalWidth) {
-        
+    if (originalWidth > originalHeight) { // landscape
+        innerRectHeight = originalHeight * 0.3;
     }
-    100 * originalHeight / originalWidth
-    // else
     
-  CGRect innerRect = CGRectInset(rect, 50, 100);
+    CGRect innerRect = CGRectInset(rect, innerRectWidth, innerRectHeight);
 
-//  CGFloat minSize = MIN(innerRect.size.width, innerRect.size.height);
-//
-//  if (innerRect.size.width != minSize) {
-//    innerRect.origin.x   += (innerRect.size.width - minSize) / 2;
-//    innerRect.size.width = minSize;
-//  }
-//  else if (innerRect.size.height != minSize) {
-//    innerRect.origin.y    += (innerRect.size.height - minSize) / 2;
-//    innerRect.size.height = minSize;
-//  }
+    CGRect offsetRect = CGRectOffset(innerRect, 0, 15);
 
-  CGRect offsetRect = CGRectOffset(innerRect, 0, 15);
-
-
-  _overlay.path = [UIBezierPath bezierPathWithRoundedRect:offsetRect cornerRadius:5].CGPath;
+    _overlay.path = [UIBezierPath bezierPathWithRoundedRect:offsetRect cornerRadius:5].CGPath;
 }
 
 #pragma mark - Private Methods
